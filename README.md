@@ -5,7 +5,7 @@ Increase coding speed and scalable architecture
 
 - [Provider: State matnagent package]
 - [Theme: Light and dark mode support]
-- [Splase screen: Splash screen/loading screen]
+- [Splash screen: Splash screen/loading screen]
 - [Token: Token based login]
 - [Drawer and bottom navigation]
 

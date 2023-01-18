@@ -1,15 +1,13 @@
-# wepora
+## wepora
 
-A new Flutter project.
+Provide complete mvvm architecture 
+Increase coding speed and scalable architecture
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Provider: State matnagent package]
+- [Theme: Light and dark mode support]
+- [Splase screen: Splash screen/loading screen]
+- [Token: Token based login]
+- [Drawer and bottom navigation]
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,

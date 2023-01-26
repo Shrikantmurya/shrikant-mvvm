@@ -98,8 +98,10 @@ class _LoginViewState extends State<LoginView> {
                   };
 
                   // Map data = {
-                  //   'email' : 'shrikant@wepora.com',
-                  //   'password' : '123456789',
+                  //   {
+                        'user_name' : 'shrikant@wepora.com',
+                        'password' : '123456789'
+                    }
                   // };
 
                   authViewMode.loginApi(data, context);

@@ -15,13 +15,17 @@ class SplashServices {
 
     getUserDate().then((value)async{
 
-      print(value.token.toString());
+      if (kDebugMode) {
+        print(value.token.toString());
+      }
 
       if(value.token.toString() == 'null' || value.token.toString() == ''){
-        await Future.delayed(Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 3));
+        // ignore: use_build_context_synchronously
         Navigator.pushNamed(context, RoutesName.layout);
       }else {
-        await  Future.delayed(Duration(seconds: 3));
+        await  Future.delayed(const Duration(seconds: 3));
+        // ignore: use_build_context_synchronously
         Navigator.pushNamed(context, RoutesName.layout);
       }
 

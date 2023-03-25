@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatefulWidget {
+class PasswordField extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType type;
   final String hint;
-  const CustomTextField(
+  const PasswordField(
       {Key? key,
       required this.controller,
       required this.type,
@@ -13,10 +13,18 @@ class CustomTextField extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<PasswordField> createState() => _PasswordFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _PasswordFieldState extends State<PasswordField> {
+  bool isObscure = true;
+  toggle() {
+    setState(() {
+      isObscure = !isObscure;
+    });
+    return isObscure;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,11 +38,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
       child: TextField(
         keyboardType: widget.type,
-        obscureText: false,
+        obscureText: isObscure,
         controller: widget.controller,
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           labelText: widget.hint,
+          suffixIcon: IconButton(
+            icon: Icon(
+              isObscure ? Icons.visibility : Icons.visibility_off,
+            ),
+            onPressed: () {
+              toggle();
+            },
+          ),
         ),
       ),
     );

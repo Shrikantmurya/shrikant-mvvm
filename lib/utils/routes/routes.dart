@@ -1,10 +1,8 @@
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../view/signp_view.dart';
 import '/utils/routes/routes_name.dart';
-import '/view/home_screen.dart';
 import '/view/layout.dart';
 import '/view/login_view.dart';
 import '/view/splash_view.dart';

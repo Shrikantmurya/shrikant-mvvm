@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wepora/utils/color.dart';
-import '/utils/color.dart' as themeColor;
 import '/utils/routes/routes.dart';
 import '/utils/routes/routes_name.dart';
 import '/view_model/auth_view_model.dart';

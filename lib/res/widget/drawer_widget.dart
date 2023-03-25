@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../utils/theme_provider.dart';
-import '/utils/color.dart';
-import '/view/login_view.dart';
 import '../../utils/routes/routes_name.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -28,7 +24,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               color: Theme.of(context).scaffoldBackgroundColor,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Row(
@@ -36,7 +32,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image(
-                        image: AssetImage('assets/images/logo.png'),
+                        image: const AssetImage('assets/images/logo.png'),
                         width: MediaQuery.of(context).size.width * 0.5,
                         height: 60,
                       ),
@@ -44,7 +40,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         onPressed: (() {
                           Navigator.pushNamed(context, RoutesName.login);
                         }),
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.solidUser,
                         ),
                         color: Theme.of(context).primaryColorDark,
@@ -52,7 +48,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                 ],
@@ -69,7 +65,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Energy Data',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -83,7 +79,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'User Management',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -97,7 +93,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Manage Subscription',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -111,7 +107,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Billing Details',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -125,7 +121,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'BESS Management',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -139,7 +135,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Carban Footprint',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -153,7 +149,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Setting',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -167,7 +163,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Notification',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},
@@ -187,7 +183,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       ),
                       title: Text(
                         themeProvider.isDarkTheme ? 'Dark Mode' : 'Light Mode',
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
                     onTap: () {
@@ -206,7 +202,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 title: Text(
                   'Logout',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               onTap: () {},

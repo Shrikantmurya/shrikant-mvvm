@@ -7,24 +7,24 @@ class DashboardViewModel with ChangeNotifier {
 
   final _myRepo = DashboardRepository();
 
-  ApiResponse<DashboardListModel> DataList = ApiResponse.loading();
+  ApiResponse<DashboardListModel> dataList = ApiResponse.loading();
 
-  setDataList(ApiResponse<DashboardListModel> response){
-    DataList = response;
+  setdataList(ApiResponse<DashboardListModel> response){
+    dataList = response;
     notifyListeners();
   }
 
   Future<void> fetchDashboardListApi()async{
 
-    setDataList(ApiResponse.loading());
+    setdataList(ApiResponse.loading());
 
     _myRepo.fetchDashboardList().then((value){
 
-      setDataList(ApiResponse.completed(value));
+      setdataList(ApiResponse.completed(value));
 
     }).onError((error, stackTrace){
 
-      setDataList(ApiResponse.error(error.toString()));
+      setdataList(ApiResponse.error(error.toString()));
 
     });
   }

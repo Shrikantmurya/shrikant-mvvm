@@ -15,45 +15,48 @@ class AuthViewModel with ChangeNotifier {
   bool _loading = false ;
   bool get loading => _loading ;
 
-  bool _signUpLoading = false ;
-  bool get signUpLoading => _signUpLoading ;
+  bool _signUploading = false ;
+  bool get signUploading => _signUploading ;
 
 
-  setLoading(bool value){
+  setloading(bool value){
     _loading = value;
     notifyListeners();
   }
 
-  setSignUpLoading(bool value){
-    _signUpLoading = value;
+  setSignUploading(bool value){
+    _signUploading = value;
     notifyListeners();
   }
 
   Future<void> loginApi(dynamic data , BuildContext context) async {
  
-    setLoading(true);
-  
+    setloading(true);
     _myRepo.loginApi(data).then((value) async {
-      setLoading(false);
+      setloading(false);
       final userPreference = Provider.of<UserViewModel>(context , listen: false);
       final newToken = value['token'];
       final prefsToken = await SharedPreferences.getInstance();
       prefsToken.setString('token', newToken);
-      print(prefsToken.get('token'));
+      if (kDebugMode) {
+        print(prefsToken.get('token'));
+      }
       userPreference.saveUser(
         UserModel(
           token: newToken,
         )
       );
 
-      Utils.flushBarErrorMessage('Login Successfully', context);
+      // ignore: use_build_context_synchronously
+      Utils.flushBarerrorMessage('Login Successfully', context);
+      // ignore: use_build_context_synchronously
       Navigator.pushNamed(context, RoutesName.layout);
       if(kDebugMode){
         print(value);
       }
     }).onError((error, stackTrace){
-      setLoading(false);
-      Utils.flushBarErrorMessage(error.toString(), context);
+      setloading(false);
+      Utils.flushBarerrorMessage(error.toString(), context);
       if(kDebugMode){
         print(error.toString());
       }
@@ -64,19 +67,19 @@ class AuthViewModel with ChangeNotifier {
 
   Future<void> signUpApi(dynamic data , BuildContext context) async {
 
-    setSignUpLoading(true);
+    setSignUploading(true);
 
     _myRepo.signUpApi(data).then((value){
-      setSignUpLoading(false);
-      Utils.flushBarErrorMessage('SignUp Successfully', context);
+      setSignUploading(false);
+      Utils.flushBarerrorMessage('SignUp Successfully', context);
       Navigator.pushNamed(context, RoutesName.layout);
       if(kDebugMode){
         print(value.toString());
 
       }
     }).onError((error, stackTrace){
-      setSignUpLoading(false);
-      Utils.flushBarErrorMessage(error.toString(), context);
+      setSignUploading(false);
+      Utils.flushBarerrorMessage(error.toString(), context);
       if(kDebugMode){
         print(error.toString());
       }

@@ -1,7 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../res/widget/customTextField.dart';
-import '../res/widget/passwordField.dart';
-import '../utils/color.dart';
+import '../res/widget/custom_textfield.dart';
+import '../res/widget/password_field.dart';
 import '../utils/text_styles.dart';
 import '/utils/routes/routes_name.dart';
 import '/utils/utils.dart';
@@ -10,27 +10,24 @@ import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../res/widget/round_button.dart';
 
-
 class SignUpView extends StatefulWidget {
-  const SignUpView({Key? key}) : super(key: key);
+  const SignUpView({super.key});
 
   @override
-  _SignUpViewState createState() => _SignUpViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
 class _SignUpViewState extends State<SignUpView> {
+  final ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
 
-  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
-
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
 
     _emailController.dispose();
@@ -64,7 +61,7 @@ class _SignUpViewState extends State<SignUpView> {
               height: 100,
             ),
             const Align(
-              child: Text('Wepora MVVM', style: LoginHeaderStyle),
+              child: Text('Wepora MVVM', style: loginHeaderStyle),
             ),
             SizedBox(
               height: height * .02,
@@ -88,12 +85,12 @@ class _SignUpViewState extends State<SignUpView> {
               onPress: () {
                 if(_emailController.text.isEmpty){
 
-                  Utils.flushBarErrorMessage('Please enter email', context);
+                  Utils.flushBarerrorMessage('Please enter email', context);
                 }else if(_passwordController.text.isEmpty){
-                  Utils.flushBarErrorMessage('Please enter password', context);
+                  Utils.flushBarerrorMessage('Please enter password', context);
 
                 }else if(_passwordController.text.length < 6){
-                  Utils.flushBarErrorMessage('Please enter 6 digit password', context);
+                  Utils.flushBarerrorMessage('Please enter 6 digit password', context);
 
                 }else {
                   Map data = {
@@ -102,7 +99,9 @@ class _SignUpViewState extends State<SignUpView> {
                   };
 
                   authViewMode.signUpApi(data , context);
-                  print('api hit');
+                  if (kDebugMode) {
+                    print('api hit');
+                  }
                 }
               },
             ),
@@ -113,12 +112,12 @@ class _SignUpViewState extends State<SignUpView> {
                 onTap: () {
                   Navigator.pushNamed(context, RoutesName.login);
                 },
-                child: Text("Don't have an accont? Login")),
+                child: const Text("Don't have an accont? Login")),
             IconButton(
               onPressed: (() {
                 Navigator.pushNamed(context, RoutesName.layout);
               }),
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               color: Theme.of(context).primaryColorDark,
               iconSize: 40,
             ),

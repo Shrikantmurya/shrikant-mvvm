@@ -9,30 +9,30 @@ class DashboardListModel {
     if (json['requests'] != null) {
       requests = <Requests>[];
       json['requests'].forEach((v) {
-        requests!.add(new Requests.fromJson(v));
+        requests!.add(Requests.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['total_count'] = this.totalCount;
-    if (this.requests != null) {
-      data['requests'] = this.requests!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['total_count'] = totalCount;
+    if (requests != null) {
+      data['requests'] = requests!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Requests {
-  dynamic? bessId;
-  dynamic? iB;
-  dynamic? iR;
-  dynamic? iY;
-  dynamic? kva;
-  dynamic? kvah;
-  dynamic? vR;
-  dynamic? createdAt;
+  dynamic bessId;
+  dynamic iB;
+  dynamic iR;
+  dynamic iY;
+  dynamic kva;
+  dynamic kvah;
+  dynamic vR;
+  dynamic createdAt;
 
 
   Requests(
@@ -57,15 +57,15 @@ class Requests {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['bess_id'] = this.bessId;
-    data['i_b'] = this.iB;
-    data['i_r'] = this.iR;
-    data['i_y'] = this.iY;
-    data['kva'] = this.kva;
-    data['kvah'] = this.kvah;
-    data['v_r'] = this.vR;
-    data['created_at'] = this.createdAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['bess_id'] = bessId;
+    data['i_b'] = iB;
+    data['i_r'] = iR;
+    data['i_y'] = iY;
+    data['kva'] = kva;
+    data['kvah'] = kvah;
+    data['v_r'] = vR;
+    data['created_at'] = createdAt;
     return data;
   }
 }

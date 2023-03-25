@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wepora/utils/color.dart';
-import 'package:wepora/view_model/dashboard_view_model.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
-import 'dart:async';
-import 'dart:math';
 
 /// Chart import
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../res/widget/circlechart_widget.dart';
 import '../res/widget/progressline_widget.dart';
-import '../view_model/dashboard_view_model.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -26,16 +19,16 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Column(
         children: [
           _buildSplineAreaChart(),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
            Text(
             'Consumption',
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           //title, progcolor, value1, value2
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
              child: Column(
-              children: [
+              children: const [
                 ProgressLineWidget(title: 'Lights & Fixtures', progcolor: Color.fromARGB(255, 125, 137, 217), value: 160, total: 200),
                 ProgressLineWidget(title: 'Lights & Fixtures', progcolor: Color.fromARGB(255, 225, 96, 99), value: 310, total: 400),
                 ProgressLineWidget(title: 'Lights & Fixtures', progcolor: Color.fromARGB(255, 125, 217, 157), value: 800, total: 800),
@@ -44,7 +37,7 @@ class _DashboardPageState extends State<DashboardPage> {
              ),
             ),
            Stack(
-            children: [
+            children: const [
             //  ExportCircle()
             ],
            )
@@ -57,7 +50,7 @@ class _DashboardPageState extends State<DashboardPage> {
   SfCartesianChart _buildSplineAreaChart() {
     return SfCartesianChart(
       legend: Legend(isVisible: true, opacity: 0.7),
-      title: ChartTitle(text: 'Generation And consumption Report', textStyle: Theme.of(context).textTheme.headline1) 
+      title: ChartTitle(text: 'Generation And consumption Report', textStyle: Theme.of(context).textTheme.displayLarge) 
       ,
       plotAreaBorderWidth: 0,
       primaryXAxis: NumericAxis(

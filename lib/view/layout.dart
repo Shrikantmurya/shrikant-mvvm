@@ -1,17 +1,15 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:wepora/utils/color.dart';
 import '../res/widget/circlechart_widget.dart';
 import '../res/widget/drawer_widget.dart';
 import 'dashboard.dart';
 import 'home_screen.dart';
 
 class Layout extends StatefulWidget {
-  final selectedIndex;
+  final dynamic selectedIndex;
   const Layout({
     Key? key,
     required this.selectedIndex,
@@ -25,14 +23,15 @@ class _LayoutState extends State<Layout> {
   int _currentIndex = 0;
   @override
   void initState() {
+    super.initState();
     _currentIndex = widget.selectedIndex;
   }
 
   final List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    DashboardPage(),
-    ExportCircle(),
-    Text('Profile'),
+    const HomeScreen(),
+    const DashboardPage(),
+    const ExportCircle(),
+    const Text('Profile'),
   ];
 
   //Exit box
@@ -55,12 +54,12 @@ class _LayoutState extends State<Layout> {
                           onPressed: () {
                             exit(0);
                           },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Theme.of(context).primaryColor),
                           child: const Text(
                             "Yes",
                             textAlign: TextAlign.center,
                           ),
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Theme.of(context).primaryColor),
                         ),
                       ),
                       const SizedBox(width: 15),
@@ -69,11 +68,11 @@ class _LayoutState extends State<Layout> {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                        ),
                         child: const Text("No",
                             style: TextStyle(color: Colors.black)),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                        ),
                       ))
                     ],
                   )
@@ -91,26 +90,28 @@ class _LayoutState extends State<Layout> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
-          title: Text('Wepora MVVM'),
+          title: const Text('Wepora MVVM'),
           actions: [
             IconButton(
               onPressed: (() {
-                print('folder clicked');
+                if (kDebugMode) {
+                  print('folder clicked');
+                }
               }),
-              icon: Icon(Icons.share),
-              color: Color.fromARGB(255, 255, 255, 255),
+              icon: const Icon(Icons.share),
+              color: const Color.fromARGB(255, 255, 255, 255),
               iconSize: 20,
             ),
           ],
         ),
-        drawer: DrawerWidget(),
+        drawer: const DrawerWidget(),
         body: Center(
           child: _widgetOptions.elementAt(_currentIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 FontAwesomeIcons.house,
                 size: 20,
               ),
@@ -118,12 +119,12 @@ class _LayoutState extends State<Layout> {
               backgroundColor: Theme.of(context).primaryColor,
             ),
             BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.leaf),
+              icon: const Icon(FontAwesomeIcons.leaf),
               label: 'Co2 Footprint',
               backgroundColor: Theme.of(context).primaryColor,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 FontAwesomeIcons.solidBell,
                 size: 24,
               ),
@@ -131,7 +132,7 @@ class _LayoutState extends State<Layout> {
               backgroundColor: Theme.of(context).primaryColor,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 FontAwesomeIcons.gear,
                 size: 22,
               ),

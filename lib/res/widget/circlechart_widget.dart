@@ -1,7 +1,3 @@
-import 'dart:async';
-import 'dart:io';
-import 'dart:typed_data';
-import 'dart:ui' as dart_ui;
 
 ///Package imports
 import 'package:flutter/material.dart';
@@ -36,7 +32,7 @@ class _ExportCircleState extends State<ExportCircle> {
                 children: <Widget>[
                   const Spacer(),
                   Container(
-                      decoration: BoxDecoration(boxShadow: const <BoxShadow>[
+                      decoration: const BoxDecoration(boxShadow: <BoxShadow>[
                         BoxShadow(
                           color: Colors.grey,
                           offset: Offset(0, 4.0),
@@ -62,7 +58,7 @@ class _ExportCircleState extends State<ExportCircle> {
                       )),
                   Container(
                       padding: const EdgeInsets.only(left: 10, right: 10),
-                      decoration: BoxDecoration(boxShadow: const <BoxShadow>[
+                      decoration: const BoxDecoration(boxShadow: <BoxShadow>[
                         BoxShadow(
                           color: Colors.grey,
                           offset: Offset(0, 4.0),
@@ -108,7 +104,7 @@ class _ExportCircleState extends State<ExportCircle> {
         CircularChartAnnotation(
             height: '55%',
             width: '55%',
-            widget: SizedBox(
+            widget: const SizedBox(
               height: 20,
               width: 20,
               child: Text('logo'),

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wepora">
-     <uses-permission android:name="android.permission.INTERNET"/>
+         <uses-permission android:name="android.permission.INTERNET"/>
   <queries>
     <intent>
       <action android:name="android.intent.action.VIEW" />
@@ -20,7 +20,7 @@
     </intent>
   </queries>
    <application
-        android:label="Wepora MVVM"
+        android:label="wepora"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
